@@ -23,7 +23,7 @@
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/serviceChecker.js"></script>
     <script type="text/javascript" src="js/angular-google-maps.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjzEeW8yY7LjBb-JktO97ts9WNbCmDSbI&sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClrTp5kG0k6-mgHFZE4_HDmejpNNetrEU&sensor=false"></script>
 
     <!-- Custom styles for this template -->
     <!--<link href="css/grid.css" rel="stylesheet">-->
@@ -45,8 +45,7 @@
       </div>
 
       <h3></h3>
-      <p>Get three equal-width columns <strong>starting at desktops and scaling to large desktops</strong>. On mobile devices, tablets and below, the columns will automatically stack.</p>
-
+      <p>Search just one or multiple addresses. You can hit enter without clicking "Check" each time.
 
       <div class="row">
         <div class="col-md-6">
@@ -59,30 +58,43 @@
           </div>
 
           <!-- SINGLE section -->
-          <div class="container" ng-hide="hideSingleSection">
-            <div class="row">
-              <div class="col-md-12">
-                  <p>Single text field</p>
+          <div ng-hide="hideSingleSection">
+            <h3></h3>
+            <form ng-submit="singleSearch()">
+              <div class="row">
+                <div class="col-md-8">
+                  <input type="text" class="form-control" placeholder="Address" ng-model="singleSearchText">
+                </div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-default">Check</button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
 
           <!-- MULTIPLE section -->
-          <div class="container" ng-hide="hideMultipleSection">
-            <div class="row">
-              <div class="col-md-12">
-                  <p>Multiple text field</p>
+          <div ng-hide="hideMultipleSection">
+            <form ng-submit="multipleSearch()">
+              <h3></h3>
+              <div class="row">
+                <div class="col-md-8">
+                  <textarea class="field span12" id="textarea" rows="6" cols="50" placeholder="Enter multiple addresses..." ng-model="multipleSearchText"></textarea>
+                </div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-default">Check</button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
 
         </div>
-
         <!-- RESULTS -->
         <div class="col-md-6">
           <h3>Results</h3>
         </div>
       </div>
+
+      <hr />
 
       <div class="row">
         <div class="col-md-12">

@@ -5,6 +5,17 @@ app.controller('ServiceCtrl', function($scope) {
     $scope.hideSingleSection = false;
     $scope.hideMultipleSection = true;
 
+    $scope.singleSearchText = "";
+    $scope.multipleSearchText = "";
+
+    $scope.singleSearch = function() {
+        console.log("Address: " + $scope.singleSearchText);
+    };
+
+    $scope.multipleSearch = function() {
+        console.log("Address: " + $scope.multipleSearchText);
+    };
+
     $scope.showSingle = function() {
         $scope.hideSingleSection = false;
         $scope.hideMultipleSection = true;
@@ -25,13 +36,13 @@ app.controller('ServiceCtrl', function($scope) {
     };
 
     angular.extend($scope, {
-        center: {
-            latitude: 0, // initial map center latitude
-            longitude: 0, // initial map center longitude
+        centerProperty: {
+            latitude: 39.751071, // initial map center latitude
+            longitude: -86.195116, // initial map center longitude
         },
-        markers: [], // an array of markers,
-        zoom: 8, // the zoom level
+        markersProperty: [], // an array of markers,
+        zoomProperty: 13, // the zoom level
         clickedLatitudeProperty: null,  
-        clickedLongitudeProperty: null,
+        clickedLongitudeProperty: null
     });
 });
