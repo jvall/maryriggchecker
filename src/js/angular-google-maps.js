@@ -64,14 +64,14 @@
     function PrivateMapModel(opts) {
       
       var _instance = null,
-        _serviceArea = null,
         _markers = [],  // caches the instances of google.maps.Marker
         _handlers = [], // event handlers
         _windows = [],  // InfoWindow objects
         o = angular.extend({}, _defaults, opts),
         that = this,
-        currentInfoWindow = null;
-      
+        currentInfoWindow = null,
+        _serviceArea = null;
+              
       this.center = opts.center;
       this.zoom = o.zoom;
       this.draggable = o.draggable;
