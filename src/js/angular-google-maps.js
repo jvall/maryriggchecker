@@ -702,7 +702,7 @@
             }
           }); 
         }
-        
+
         // Markers
         scope.$watch("markers", function (newValue, oldValue) {
           

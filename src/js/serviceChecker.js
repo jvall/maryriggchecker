@@ -8,12 +8,7 @@ app.controller('ServiceCtrl', function($scope) {
     $scope.singleSearchText = "";
     $scope.multipleSearchText = "";
 
-    $scope.markers = [{latitude: 39.7510444,
-                longitude: -86.19556549999999}];
-    $scope.center = {
-        latitude: 39.751071, // initial map center latitude
-        longitude: -86.195116, // initial map center longitude
-    };
+    $scope.markers = [];
 
     $scope.geocoder = new google.maps.Geocoder();
 
@@ -21,10 +16,9 @@ app.controller('ServiceCtrl', function($scope) {
         $scope.geocoder.geocode( { 'address': $scope.singleSearchText}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
-            $scope.center.latitude = results[0].geometry.location.ob;
-            $scope.center.longitude = results[0].geometry.location.pb;
             $scope.markers.push({latitude: results[0].geometry.location.ob,
                 longitude: results[0].geometry.location.pb});
+            $scope.$apply();
             console.log("Address: " + $scope.singleSearchText);
           } else {
             alert("Geocode was not successful for the following reason: " + status);
@@ -56,10 +50,12 @@ app.controller('ServiceCtrl', function($scope) {
     };
 
     angular.extend($scope, {
-        centerProperty: $scope.center,
-        markersProperty: $scope.markers, // an array of markers,
+        centerProperty: {
+            latitude: 39.751071, // initial map center latitude
+            longitude: -86.195116, // initial map center longitude
+        },
         zoomProperty: 13, // the zoom level
         clickedLatitudeProperty: null,  
-        clickedLongitudeProperty: null
+        clickedLongitudeProperty: null,
     });
 });
