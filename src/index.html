@@ -81,6 +81,22 @@
                   <textarea class="field span12" id="textarea" rows="6" cols="50" placeholder="Enter multiple addresses..." ng-model="multipleSearchText"></textarea>
                 </div>
                 <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>Separated by:</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p><input type="radio" name="delimit" ng-click="delimeter = ';'" checked="checked" /> Semicolon</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p><input type="radio" name="delimit" ng-click="delimeter = ' '" /> Space</p>
+                    </div>
+                  </div>
+
                   <button type="submit" class="btn btn-default">Check</button>
                 </div>
               </div>

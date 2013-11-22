@@ -7,6 +7,8 @@ app.controller('ServiceCtrl', function($scope) {
 
     $scope.singleSearchText = "";
     $scope.multipleSearchText = "";
+    $scope.delimeter = ";";
+    $scope.toPrint = "HAI";
 
     $scope.markers = [];
 
@@ -19,7 +21,6 @@ app.controller('ServiceCtrl', function($scope) {
             $scope.markers.push({latitude: results[0].geometry.location.ob,
                 longitude: results[0].geometry.location.pb});
             $scope.$apply();
-            console.log("Address: " + $scope.singleSearchText);
           } else {
             alert("Geocode was not successful for the following reason: " + status);
           }
@@ -27,7 +28,21 @@ app.controller('ServiceCtrl', function($scope) {
     };
 
     $scope.multipleSearch = function() {
-        console.log("Address: " + $scope.multipleSearchText);
+
+
+        /*var addrArr = $scope.multipleSearchText.split(delimeter);
+
+
+        $scope.geocoder.geocode( { 'address': $scope.singleSearchText}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+            $scope.markers.push({latitude: results[0].geometry.location.ob,
+                longitude: results[0].geometry.location.pb});
+            $scope.$apply();
+          } else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });*/
     };
 
     $scope.showSingle = function() {
