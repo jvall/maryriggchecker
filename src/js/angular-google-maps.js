@@ -98,7 +98,7 @@
             mapTypeId : google.maps.MapTypeId.ROADMAP
           }));
 
-             var polyOptions = {
+             /*var polyOptions = {
               paths: [new google.maps.LatLng(39.736500,-86.187813),
               new google.maps.LatLng(39.736053,-86.191025),
               new google.maps.LatLng(39.735657,-86.192337),
@@ -325,7 +325,7 @@
           };
 
           _serviceArea = new google.maps.Polygon(polyOptions);
-          _serviceArea.setMap(_instance);
+          _serviceArea.setMap(_instance);*/
           
           google.maps.event.addListener(_instance, "dragstart",
               

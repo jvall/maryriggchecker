@@ -8,7 +8,6 @@ app.controller('ServiceCtrl', function($scope) {
     $scope.singleSearchText = "";
     $scope.multipleSearchText = "";
     $scope.delimeter = ";";
-    $scope.toPrint = "HAI";
 
     $scope.markers = [];
 
